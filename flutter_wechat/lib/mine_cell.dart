@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'child_page.dart';
-// import 'Mine_child_page.dart';
 
 class MineCell extends StatelessWidget {
   final String? title;
@@ -55,6 +53,7 @@ class MineCell extends StatelessWidget {
                     width: 12,
                   )
                       : Container(),
+                  //箭头
                   const Image(
                     image: AssetImage('images/icon_right.png'),
                     width: 14,

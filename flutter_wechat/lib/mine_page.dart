@@ -10,6 +10,7 @@ class MinePage extends StatefulWidget {
 }
 
 class _MinePageState extends State<MinePage> {
+  //头部部分
   Widget headerWidget(){
     return Container(
       height: 110,
@@ -75,6 +76,7 @@ class _MinePageState extends State<MinePage> {
         ),
       ),
       body:Container(
+        color: GlobalThemeColor,
         child: MediaQuery.removePadding(
           removeTop: true,//去掉导航栏的间隙
           context: context,
@@ -82,6 +84,7 @@ class _MinePageState extends State<MinePage> {
             children: [
               //头部
               headerWidget(),
+              //列表 cell
               Column(
                   children: [
                     const SizedBox(height: 10,),
@@ -96,10 +99,12 @@ class _MinePageState extends State<MinePage> {
                       imageName: 'images/微信收藏.png',
                       title: '收藏',
                     ),
+                    //cell 底部分割线
                     Row(
                       children: <Widget>[
+                        //左右
                         Container(width: 50, height: 0.5, color: Colors.white),
-                        Container(height: 0.5, color: Colors.grey)
+                        //Container(height: 0.5, color: Colors.grey)
                       ],
                     ),
                     const MineCell(
