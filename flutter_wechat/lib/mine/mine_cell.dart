@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'child_page.dart';
-
+import 'package:flutter_wechat/child_page.dart';
 class MineCell extends StatelessWidget {
   final String? title;
   final String? subTitle;

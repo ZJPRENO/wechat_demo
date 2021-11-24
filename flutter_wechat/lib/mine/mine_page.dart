@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'common.dart';
+import 'package:flutter_wechat/common.dart';
 import 'mine_cell.dart';
 
 class MinePage extends StatefulWidget {

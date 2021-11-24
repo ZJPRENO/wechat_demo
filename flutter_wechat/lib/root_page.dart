@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wechat/chat_page.dart';
 import 'package:flutter_wechat/discover_page.dart';
-import 'package:flutter_wechat/friends_page.dart';
-import 'package:flutter_wechat/mine_page.dart';
+import 'package:flutter_wechat/friends/friends_page.dart';
+import 'package:flutter_wechat/mine/mine_page.dart';
 //BottomNavigationBarItem(
 //             icon: Image.asset(
 //               'images/tabbar_chat.png',
