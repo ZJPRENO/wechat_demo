@@ -17,13 +17,18 @@ class _FriendCell extends StatelessWidget {
 
     return Column(
       children: [
+        //组头
         Container(
-          alignment:Alignment.centerLeft,
-          padding: const EdgeInsets.only(left: 10),
+          alignment:Alignment.centerLeft,//靠左边居中
+          padding: const EdgeInsets.only(left: 10),//距离左10 个间距
           height: groupTitle!=null?30:0,
           color: GlobalThemeColor,
-          child: groupTitle!=null?Text(groupTitle!,style: const TextStyle(color: Colors.grey),):null,
+          child: groupTitle!=null?Text(
+            groupTitle!,
+            style: const TextStyle(color: Colors.grey),
+          ) :null,
         ),
+        //昵称和图片
         Container(
           color: Colors.white,
           child: Row(
@@ -91,6 +96,26 @@ class _FriendsPageState extends State<FriendsPage> {
     Friends(imageAssets: 'images/标签.png', name: '标签'),
     Friends(imageAssets: 'images/公众号.png', name: '公众号'),
   ];
+  late final List<Friends> _listDatas = [];//列表数据
+  final double _cellHeight = 54.0;
+  final double _groupHeight = 30.0;
+
+  //页面创建渲染的时候走这个方法
+  @override
+  void initState(){
+    super.initState();
+    //创建数据
+    // _listDatas.addAll(datas);
+    // _listDatas.addAll(datas);
+    _listDatas..addAll(datas)..addAll(datas)..addAll(datas);//数据
+
+    //排序
+    _listDatas.sort((Friends a,Friends b){
+      return a.indexLetter!.compareTo(b.indexLetter!);
+    });
+    print(_listDatas);
+  }
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -119,7 +144,7 @@ class _FriendsPageState extends State<FriendsPage> {
       body:Container(
         child: ListView.builder(
           itemBuilder: _itemForRow,
-          itemCount: _headerData.length,
+          itemCount: _headerData.length+_listDatas.length,
         ),
       ),
     );
@@ -127,10 +152,31 @@ class _FriendsPageState extends State<FriendsPage> {
 
   Widget _itemForRow(BuildContext context, int index) {
     //显示头部 4 个 cell
+    if(index < _headerData.length){
       return _FriendCell(
         imageAssets: _headerData[index].imageAssets,
         name:_headerData[index].name ,
       );
+    }else {
+      //不显示名称
+      if(index -4 > 0 &&
+      _listDatas[index-4].indexLetter==_listDatas[index-5].indexLetter
+      ){//就是每一组的第一个显示，除了一个以外的cell 的indexLetter就不显示
+        return _FriendCell(
+          imageUrl: _listDatas[index-4].imageUrl,
+          name:_listDatas[index-4].name,
+        );
+      }else{
+        //显示组名称
+        return _FriendCell(
+          imageUrl: _listDatas[index-4].imageUrl,
+          name:_listDatas[index-4].name,
+          groupTitle: _listDatas[index-4].indexLetter,
+        );
+      }
+
+    }
+
 
   }
 

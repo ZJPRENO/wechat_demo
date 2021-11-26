@@ -1,12 +1,15 @@
 
+
+//model
 class Friends {
-  final String? imageUrl;
-  final String? name;
-  final String? indexLetter;
-  final String? imageAssets;
+  final String? imageUrl;//图片 URL
+  final String? name;//好友名称
+  final String? indexLetter;//索引字母(组头)
+  final String? imageAssets;//图片
+  //构造方法
   Friends({this.imageUrl,this.name,this.indexLetter,this.imageAssets});
 }
-
+//好友列表
 List <Friends>datas =
 [
   Friends(
