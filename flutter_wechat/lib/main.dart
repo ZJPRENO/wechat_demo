@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme:ThemeData(
         primarySwatch: Colors.blue,//导航栏颜色
       ),
-      home: RootPage(),
+      home: const RootPage(),
     );
   }
 }
