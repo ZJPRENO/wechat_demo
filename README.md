@@ -1,2 +1,2 @@
 # wechat_demo
-Use flutter to write a WeChat demo
+【Flutter】项目实战，仿写微信！
